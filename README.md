@@ -34,12 +34,14 @@ static-website/
 ### Method 1: Using GitHub Web Interface
 
 1. **Create a new GitHub repository**
+
    - Go to https://github.com/new
    - Name it: `augment-lab-website` (or any name you prefer)
    - Make it Public
    - Click "Create repository"
 
 2. **Upload files**
+
    - Click "uploading an existing file"
    - Drag and drop these files:
      - `index.html`
@@ -91,7 +93,7 @@ Edit `index.html` and search for these sections to update:
 Search for `href="#"` in the footer and team sections, replace `#` with your actual social media URLs:
 
 ```html
-<a href="https://linkedin.com/company/yourcompany" target="_blank">
+<a href="https://linkedin.com/company/yourcompany" target="_blank"></a>
 ```
 
 ### Change Colors
@@ -108,9 +110,9 @@ Replace the text logo in `index.html`:
 
 ```html
 <div class="logo">
-    <a href="#hero">
-        <img src="your-logo.png" alt="Augment Lab" style="height: 40px;">
-    </a>
+  <a href="#hero">
+    <img src="your-logo.png" alt="Augment Lab" style="height: 40px;" />
+  </a>
 </div>
 ```
 
@@ -148,11 +150,13 @@ Note: Service Worker requires a secure context (https) or localhost. Use a local
 To use a custom domain with GitHub Pages:
 
 1. Add a file named `CNAME` in your repository with your domain:
+
    ```
    www.augmentlab.com
    ```
 
 2. Configure DNS records at your domain provider:
+
    - Add a CNAME record pointing to: `yourusername.github.io`
    - Or add A records pointing to GitHub's IPs
 
@@ -169,7 +173,11 @@ The contact form currently shows a success message. To make it functional:
 3. Update the form in `index.html`:
 
 ```html
-<form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+<form
+  id="contactForm"
+  action="https://formspree.io/f/your-form-id"
+  method="POST"
+></form>
 ```
 
 ### Option 2: EmailJS (Free tier available)
