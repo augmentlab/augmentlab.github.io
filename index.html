@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Augment Lab - Expert Next.js & Flutter Development</title>
     <meta name="description" content="Expert software development team specializing in Next.js and Flutter, delivering cutting-edge solutions for companies worldwide.">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <meta name="theme-color" content="#1d4ed8">
+
+        <!-- Performance: preconnect to CDNs -->
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+        <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+        <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+        <link rel="dns-prefetch" href="//images.unsplash.com">
+        <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+        <link rel="dns-prefetch" href="//images.pexels.com">
+
+        <!-- Inline critical CSS for above-the-fold to avoid FOUC -->
+        <style>
+            /* Critical: base, header, hero, buttons */
+            *{box-sizing:border-box;margin:0;padding:0}
+            html{scroll-behavior:smooth}
+            body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;line-height:1.6;color:#374151}
+            .container{max-width:1280px;margin:0 auto;padding:0 1rem}
+            @media (min-width:640px){.container{padding:0 1.5rem}}
+            @media (min-width:1024px){.container{padding:0 2rem}}
+            #header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);box-shadow:0 1px 3px rgba(0,0,0,.1);z-index:1000;transition:all .3s ease}
+            .header-content{display:flex;justify-content:space-between;align-items:center;height:64px}
+            .logo a{font-size:1.5rem;font-weight:700;background:linear-gradient(to right,#1d4ed8,#1e3a8a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;transition:opacity .3s ease}
+            .nav-desktop{display:none;align-items:center;gap:2rem}
+            @media (min-width:768px){.nav-desktop{display:flex}.desktop-only{display:inline-block}.mobile-menu-toggle{display:none}}
+            .btn{padding:.5rem 1.5rem;border:none;border-radius:.375rem;font-weight:600;cursor:pointer;transition:all .3s ease;display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;font-size:1rem}
+            .btn-primary{background:#1d4ed8;color:#fff}
+            .btn-outline{border:2px solid #fff;color:#fff;background:transparent;backdrop-filter:blur(10px)}
+            .btn-lg{padding:.75rem 2rem;font-size:1.125rem}
+            .hero-section{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:64px}
+            .hero-background{position:absolute;inset:0;z-index:0}
+            .hero-background img{width:100%;height:100%;object-fit:cover}
+            .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(17,24,39,.95),rgba(17,24,39,.9),rgba(17,24,39,.8))}
+            .hero-content{position:relative;z-index:10;padding:5rem 0}
+            .hero-text{max-width:48rem}
+            .hero-badge{display:inline-block;padding:.5rem 1rem;background:rgba(37,99,235,.2);backdrop-filter:blur(10px);border-radius:9999px;border:1px solid rgba(96,165,250,.3);margin-bottom:1.5rem}
+            .hero-section h1{font-size:3rem;font-weight:700;color:#fff;margin-bottom:1.5rem;line-height:1.2}
+            .hero-section h2{font-size:1.5rem;color:#93c5fd;font-weight:600;margin-bottom:1.5rem}
+            .hero-description{font-size:1.25rem;color:#d1d5db;margin-bottom:2.5rem;line-height:1.75}
+            .hero-buttons{display:flex;flex-direction:column;gap:1rem;margin-bottom:4rem}
+            @media (min-width:640px){.hero-buttons{flex-direction:row}.hero-section h1{font-size:3.75rem}.hero-section h2{font-size:1.875rem}}
+        </style>
+
+        <!-- Load main stylesheet without blocking render -->
+        <link rel="preload" href="styles.css" as="style">
+        <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="styles.css"></noscript>
+
+        <!-- Font Awesome (non-blocking) -->
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+        <link rel="manifest" href="manifest.json">
+        <!-- Preload hero image for faster LCP -->
+        <link rel="preload" as="image" href="https://images.unsplash.com/photo-1748256467077-c75ef01579aa?auto=format&fit=crop&w=1600&q=70&crop=entropy&cs=srgb&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHw0fHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwdGVhbXxlbnwwfHx8fDE3NjEzMjgyNzd8MA&ixlib=rb-4.1.0">
 </head>
 <body>
     <!-- Header -->
@@ -47,7 +99,11 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="hero-background">
-            <img src="https://images.unsplash.com/photo-1748256467077-c75ef01579aa?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHw0fHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwdGVhbXxlbnwwfHx8fDE3NjEzMjgyNzd8MA&ixlib=rb-4.1.0&q=85" alt="Augment Lab Team">
+        <img src="https://images.unsplash.com/photo-1748256467077-c75ef01579aa?auto=format&fit=crop&w=1600&q=70&crop=entropy&cs=srgb&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHw0fHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwdGVhbXxlbnwwfHx8fDE3NjEzMjgyNzd8MA&ixlib=rb-4.1.0"
+         srcset="https://images.unsplash.com/photo-1748256467077-c75ef01579aa?auto=format&fit=crop&w=800&q=65 800w,
+             https://images.unsplash.com/photo-1748256467077-c75ef01579aa?auto=format&fit=crop&w=1200&q=70 1200w,
+             https://images.unsplash.com/photo-1748256467077-c75ef01579aa?auto=format&fit=crop&w=1600&q=70 1600w"
+         sizes="100vw" fetchpriority="high" decoding="async" alt="Augment Lab Team">
             <div class="hero-overlay"></div>
         </div>
         
@@ -101,7 +157,12 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1579403124614-197f69d8187b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50fGVufDB8fHx8MTc2MTMyODM4Mnww&ixlib=rb-4.1.0&q=85" alt="Web Application Development">
+            <img loading="lazy" decoding="async"
+                 src="https://images.unsplash.com/photo-1579403124614-197f69d8187b?auto=format&fit=crop&w=800&q=70&crop=entropy&cs=srgb&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50fGVufDB8fHx8MTc2MTMyODM4Mnww&ixlib=rb-4.1.0"
+                 srcset="https://images.unsplash.com/photo-1579403124614-197f69d8187b?auto=format&fit=crop&w=480&q=65 480w,
+                     https://images.unsplash.com/photo-1579403124614-197f69d8187b?auto=format&fit=crop&w=800&q=70 800w,
+                     https://images.unsplash.com/photo-1579403124614-197f69d8187b?auto=format&fit=crop&w=1200&q=70 1200w"
+                 sizes="(max-width: 768px) 100vw, 50vw" alt="Web Application Development">
                         <div class="service-icon">
                             <i class="fas fa-code"></i>
                         </div>
@@ -114,7 +175,12 @@
                 
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwc2VydmljZXN8ZW58MHx8fHwxNzYxMzI4MzkzfDA&ixlib=rb-4.1.0&q=85" alt="Mobile App Development">
+            <img loading="lazy" decoding="async"
+                 src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?auto=format&fit=crop&w=800&q=70&crop=entropy&cs=srgb&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwc2VydmljZXN8ZW58MHx8fHwxNzYxMzI4MzkzfDA&ixlib=rb-4.1.0"
+                 srcset="https://images.unsplash.com/photo-1623479322729-28b25c16b011?auto=format&fit=crop&w=480&q=65 480w,
+                     https://images.unsplash.com/photo-1623479322729-28b25c16b011?auto=format&fit=crop&w=800&q=70 800w,
+                     https://images.unsplash.com/photo-1623479322729-28b25c16b011?auto=format&fit=crop&w=1200&q=70 1200w"
+                 sizes="(max-width: 768px) 100vw, 50vw" alt="Mobile App Development">
                         <div class="service-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
@@ -127,7 +193,12 @@
                 
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzYxMzI4MzQ2fDA&ixlib=rb-4.1.0&q=85" alt="UI/UX Design">
+            <img loading="lazy" decoding="async"
+                 src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=800&q=70&crop=entropy&cs=srgb&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzYxMzI4MzQ2fDA&ixlib=rb-4.1.0"
+                 srcset="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=480&q=65 480w,
+                     https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=800&q=70 800w,
+                     https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=1200&q=70 1200w"
+                 sizes="(max-width: 768px) 100vw, 50vw" alt="UI/UX Design">
                         <div class="service-icon">
                             <i class="fas fa-palette"></i>
                         </div>
@@ -140,7 +211,12 @@
                 
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1711397505947-648fc2909627?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwzfHx0ZWNoJTIwc2VydmljZXN8ZW58MHx8fHwxNzYxMzI4MzkzfDA&ixlib=rb-4.1.0&q=85" alt="Technical Consulting">
+            <img loading="lazy" decoding="async"
+                 src="https://images.unsplash.com/photo-1711397505947-648fc2909627?auto=format&fit=crop&w=800&q=70&crop=entropy&cs=srgb&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwzfHx0ZWNoJTIwc2VydmljZXN8ZW58MHx8fHwxNzYxMzI4MzkzfDA&ixlib=rb-4.1.0"
+                 srcset="https://images.unsplash.com/photo-1711397505947-648fc2909627?auto=format&fit=crop&w=480&q=65 480w,
+                     https://images.unsplash.com/photo-1711397505947-648fc2909627?auto=format&fit=crop&w=800&q=70 800w,
+                     https://images.unsplash.com/photo-1711397505947-648fc2909627?auto=format&fit=crop&w=1200&q=70 1200w"
+                 sizes="(max-width: 768px) 100vw, 50vw" alt="Technical Consulting">
                         <div class="service-icon">
                             <i class="fas fa-users"></i>
                         </div>
@@ -165,7 +241,12 @@
             <div class="portfolio-grid">
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1554098415-788601c80aef?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzYxMzI4MzM5fDA&ixlib=rb-4.1.0&q=85" alt="Enterprise Dashboard Platform">
+            <img loading="lazy" decoding="async"
+                 src="https://images.unsplash.com/photo-1554098415-788601c80aef?auto=format&fit=crop&w=900&q=70&crop=entropy&cs=srgb&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzYxMzI4MzM5fDA&ixlib=rb-4.1.0"
+                 srcset="https://images.unsplash.com/photo-1554098415-788601c80aef?auto=format&fit=crop&w=600&q=65 600w,
+                     https://images.unsplash.com/photo-1554098415-788601c80aef?auto=format&fit=crop&w=900&q=70 900w,
+                     https://images.unsplash.com/photo-1554098415-788601c80aef?auto=format&fit=crop&w=1200&q=70 1200w"
+                 sizes="(max-width: 768px) 100vw, 50vw" alt="Enterprise Dashboard Platform">
                         <span class="portfolio-badge">Web Application</span>
                     </div>
                     <div class="portfolio-content">
@@ -182,7 +263,12 @@
                 
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1658953229625-aad99d7603b4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzYxMzI4MzQ2fDA&ixlib=rb-4.1.0&q=85" alt="E-Commerce Mobile App">
+            <img loading="lazy" decoding="async"
+                 src="https://images.unsplash.com/photo-1658953229625-aad99d7603b4?auto=format&fit=crop&w=900&q=70&crop=entropy&cs=srgb&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzYxMzI4MzQ2fDA&ixlib=rb-4.1.0"
+                 srcset="https://images.unsplash.com/photo-1658953229625-aad99d7603b4?auto=format&fit=crop&w=600&q=65 600w,
+                     https://images.unsplash.com/photo-1658953229625-aad99d7603b4?auto=format&fit=crop&w=900&q=70 900w,
+                     https://images.unsplash.com/photo-1658953229625-aad99d7603b4?auto=format&fit=crop&w=1200&q=70 1200w"
+                 sizes="(max-width: 768px) 100vw, 50vw" alt="E-Commerce Mobile App">
                         <span class="portfolio-badge">Mobile Application</span>
                     </div>
                     <div class="portfolio-content">
@@ -198,7 +284,12 @@
                 
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1758770478125-4850521fd941?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwzfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzYxMzI4MzQ2fDA&ixlib=rb-4.1.0&q=85" alt="Healthcare Management System">
+            <img loading="lazy" decoding="async"
+                 src="https://images.unsplash.com/photo-1758770478125-4850521fd941?auto=format&fit=crop&w=900&q=70&crop=entropy&cs=srgb&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwzfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzYxMzI4MzQ2fDA&ixlib=rb-4.1.0"
+                 srcset="https://images.unsplash.com/photo-1758770478125-4850521fd941?auto=format&fit=crop&w=600&q=65 600w,
+                     https://images.unsplash.com/photo-1758770478125-4850521fd941?auto=format&fit=crop&w=900&q=70 900w,
+                     https://images.unsplash.com/photo-1758770478125-4850521fd941?auto=format&fit=crop&w=1200&q=70 1200w"
+                 sizes="(max-width: 768px) 100vw, 50vw" alt="Healthcare Management System">
                         <span class="portfolio-badge">Web Application</span>
                     </div>
                     <div class="portfolio-content">
@@ -214,7 +305,12 @@
                 
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzYxMzI4MzQ2fDA&ixlib=rb-4.1.0&q=85" alt="Fintech Banking App">
+            <img loading="lazy" decoding="async"
+                 src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=900&q=70&crop=entropy&cs=srgb&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzYxMzI4MzQ2fDA&ixlib=rb-4.1.0"
+                 srcset="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=600&q=65 600w,
+                     https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=900&q=70 900w,
+                     https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=1200&q=70 1200w"
+                 sizes="(max-width: 768px) 100vw, 50vw" alt="Fintech Banking App">
                         <span class="portfolio-badge">Mobile Application</span>
                     </div>
                     <div class="portfolio-content">
@@ -242,79 +338,91 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-avatar">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHN8ZW58MHx8fHwxNzYxMjU2Nzg0fDA&ixlib=rb-4.1.0&q=85" alt="Michael Chen">
+                    <img loading="lazy" decoding="async" width="128" height="128"
+                        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=70&crop=entropy&cs=srgb&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHN8ZW58MHx8fHwxNzYxMjU2Nzg0fDA&ixlib=rb-4.1.0"
+                        alt="Michael Chen">
                     </div>
                     <h3>Michael Chen</h3>
                     <p class="team-role">CEO & Lead Architect</p>
                     <p class="team-bio">15+ years of experience in software architecture and team leadership. Specializes in scalable system design.</p>
                     <div class="team-social">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card">
                     <div class="team-avatar">
-                        <img src="https://images.unsplash.com/photo-1657128344786-360c3f8e57e5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHN8ZW58MHx8fHwxNzYxMjU2Nzg0fDA&ixlib=rb-4.1.0&q=85" alt="Sarah Johnson">
+                    <img loading="lazy" decoding="async" width="128" height="128"
+                        src="https://images.unsplash.com/photo-1657128344786-360c3f8e57e5?auto=format&fit=crop&w=256&q=70&crop=entropy&cs=srgb&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHN8ZW58MHx8fHwxNzYxMjU2Nzg0fDA&ixlib=rb-4.1.0"
+                        alt="Sarah Johnson">
                     </div>
                     <h3>Sarah Johnson</h3>
                     <p class="team-role">CTO</p>
                     <p class="team-bio">Expert in Next.js and modern web technologies. Led development teams at major tech companies.</p>
                     <div class="team-social">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card">
                     <div class="team-avatar">
-                        <img src="https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHN8ZW58MHx8fHwxNzYxMjU2Nzg0fDA&ixlib=rb-4.1.0&q=85" alt="David Martinez">
+                    <img loading="lazy" decoding="async" width="128" height="128"
+                        src="https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?auto=format&fit=crop&w=256&q=70&crop=entropy&cs=srgb&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHN8ZW58MHx8fHwxNzYxMjU2Nzg0fDA&ixlib=rb-4.1.0"
+                        alt="David Martinez">
                     </div>
                     <h3>David Martinez</h3>
                     <p class="team-role">Senior Flutter Developer</p>
                     <p class="team-bio">Mobile development specialist with 50+ published apps. Passionate about creating beautiful user experiences.</p>
                     <div class="team-social">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card">
                     <div class="team-avatar">
-                        <img src="https://images.pexels.com/photos/30004320/pexels-photo-30004320.jpeg" alt="Emily Rodriguez">
+                    <img loading="lazy" decoding="async" width="128" height="128"
+                        src="https://images.pexels.com/photos/30004320/pexels-photo-30004320.jpeg?auto=compress&cs=tinysrgb&w=256"
+                        alt="Emily Rodriguez">
                     </div>
                     <h3>Emily Rodriguez</h3>
                     <p class="team-role">Lead UI/UX Designer</p>
                     <p class="team-bio">Award-winning designer focused on user-centered design. Creates interfaces that users love.</p>
                     <div class="team-social">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card">
                     <div class="team-avatar">
-                        <img src="https://images.unsplash.com/photo-1652471943570-f3590a4e52ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHN8ZW58MHx8fHwxNzYxMjU2Nzg0fDA&ixlib=rb-4.1.0&q=85" alt="James Wilson">
+                    <img loading="lazy" decoding="async" width="128" height="128"
+                        src="https://images.unsplash.com/photo-1652471943570-f3590a4e52ed?auto=format&fit=crop&w=256&q=70&crop=entropy&cs=srgb&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHN8ZW58MHx8fHwxNzYxMjU2Nzg0fDA&ixlib=rb-4.1.0"
+                        alt="James Wilson">
                     </div>
                     <h3>James Wilson</h3>
                     <p class="team-role">Full Stack Developer</p>
                     <p class="team-bio">Full-stack expert proficient in Next.js, Node.js, and cloud technologies. Delivers robust solutions.</p>
                     <div class="team-social">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
                 <div class="team-card">
                     <div class="team-avatar">
-                        <img src="https://images.pexels.com/photos/30004322/pexels-photo-30004322.jpeg" alt="Lisa Anderson">
+                    <img loading="lazy" decoding="async" width="128" height="128"
+                        src="https://images.pexels.com/photos/30004322/pexels-photo-30004322.jpeg?auto=compress&cs=tinysrgb&w=256"
+                        alt="Lisa Anderson">
                     </div>
                     <h3>Lisa Anderson</h3>
                     <p class="team-role">Project Manager</p>
                     <p class="team-bio">Certified Scrum Master with expertise in agile methodologies. Ensures projects deliver on time and budget.</p>
                     <div class="team-social">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
@@ -514,9 +622,9 @@
                     <h3>Augment Lab</h3>
                     <p>Expert software development team specializing in Next.js and Flutter, delivering cutting-edge solutions for companies worldwide.</p>
                     <div class="footer-social">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 
@@ -558,6 +666,14 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
-    <script src="script.js"></script>
+        <script defer src="script.js"></script>
+        <script>
+            // Register Service Worker for caching
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js').catch(() => {});
+                });
+            }
+        </script>
 </body>
 </html>

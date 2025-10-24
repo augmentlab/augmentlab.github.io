@@ -60,7 +60,7 @@ window.addEventListener('scroll', () => {
     }
     
     lastScroll = currentScroll;
-});
+}, { passive: true });
 
 // Toast notification system
 function showToast(title, description) {
@@ -158,7 +158,7 @@ window.addEventListener('scroll', () => {
             navLink.style.color = '#1d4ed8';
         }
     });
-});
+}, { passive: true });
 
 // Console log for developers
 console.log('%c🚀 Augment Lab', 'color: #1d4ed8; font-size: 24px; font-weight: bold;');

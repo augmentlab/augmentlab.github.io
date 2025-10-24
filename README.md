@@ -13,16 +13,19 @@ A professional, responsive corporate website for Augment Lab - Expert Next.js & 
   - Team members
   - Client testimonials
   - Contact form with validation
-- **Performance Optimized** - Pure HTML/CSS/JavaScript for fast loading
+- **Performance Optimized** - Lazy-loaded responsive images, non-blocking styles/scripts, critical CSS inlined
+- **PWA Ready** - Offline caching via Service Worker and `manifest.json`
 - **SEO Friendly** - Proper meta tags and semantic HTML
 
 ## 📁 File Structure
 
 ```
 static-website/
-├── index.html       # Main HTML file
-├── styles.css       # All styling
-├── script.js        # Interactive functionality
+├── index.html       # Main HTML file (with performance hints and SW registration)
+├── styles.css       # All styling (with content-visibility and reduced-motion)
+├── script.js        # Interactive functionality (deferred)
+├── sw.js            # Service worker for caching static assets
+├── manifest.json    # PWA manifest
 └── README.md        # This file
 ```
 
@@ -136,6 +139,8 @@ python -m http.server 8000
 npx http-server
 
 # Then visit http://localhost:8000
+
+Note: Service Worker requires a secure context (https) or localhost. Use a local server to test SW caching.
 ```
 
 ## 🌐 Custom Domain
