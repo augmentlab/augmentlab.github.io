@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Augment Lab - Expert Next.js & Flutter Development</title>
+    <meta name="description" content="Expert software development team specializing in Next.js and Flutter, delivering cutting-edge solutions for companies worldwide.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="#hero">Augment Lab</a>
+                </div>
+                
+                <nav class="nav-desktop">
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#team">Team</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                
+                <button class="btn btn-primary desktop-only" onclick="scrollToSection('contact')">Get Started</button>
+                
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#services" onclick="closeMobileMenu()">Services</a>
+            <a href="#portfolio" onclick="closeMobileMenu()">Portfolio</a>
+            <a href="#team" onclick="closeMobileMenu()">Team</a>
+            <a href="#testimonials" onclick="closeMobileMenu()">Testimonials</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+            <button class="btn btn-primary" onclick="scrollToSection('contact'); closeMobileMenu();">Get Started</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-background">
+            <img src="https://images.unsplash.com/photo-1748256467077-c75ef01579aa?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHw0fHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50JTIwdGVhbXxlbnwwfHx8fDE3NjEzMjgyNzd8MA&ixlib=rb-4.1.0&q=85" alt="Augment Lab Team">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <p>Expert Next.js & Flutter Development</p>
+                </div>
+                
+                <h1>Augment Lab</h1>
+                <h2>Building Exceptional Web & Mobile Applications</h2>
+                <p class="hero-description">Expert software development team specializing in Next.js and Flutter, delivering cutting-edge solutions for companies worldwide.</p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-lg" onclick="scrollToSection('contact')">
+                        <i class="far fa-calendar"></i>
+                        Schedule a Call
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-outline btn-lg" onclick="scrollToSection('contact')">
+                        Get a Quote
+                    </button>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive software development solutions tailored to your business needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1579403124614-197f69d8187b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50fGVufDB8fHx8MTc2MTMyODM4Mnww&ixlib=rb-4.1.0&q=85" alt="Web Application Development">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Web Application Development</h3>
+                        <p>Custom web applications built with modern frameworks like Next.js, React, and Node.js. Scalable, performant, and user-friendly solutions tailored to your business needs.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwc2VydmljZXN8ZW58MHx8fHwxNzYxMzI4MzkzfDA&ixlib=rb-4.1.0&q=85" alt="Mobile App Development">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Mobile App Development</h3>
+                        <p>Native and cross-platform mobile applications using Flutter. Beautiful, fast, and reliable apps for iOS and Android that deliver exceptional user experiences.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzYxMzI4MzQ2fDA&ixlib=rb-4.1.0&q=85" alt="UI/UX Design">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>UI/UX Design</h3>
+                        <p>User-centered design solutions that combine aesthetics with functionality. We create intuitive interfaces that engage users and drive conversions.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1711397505947-648fc2909627?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwzfHx0ZWNoJTIwc2VydmljZXN8ZW58MHx8fHwxNzYxMzI4MzkzfDA&ixlib=rb-4.1.0&q=85" alt="Technical Consulting">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Technical Consulting</h3>
+                        <p>Expert guidance on technology strategy, architecture decisions, and implementation best practices to help your business succeed in the digital landscape.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Portfolio</h2>
+                <p>Showcasing successful projects that demonstrate our expertise and commitment to excellence</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1554098415-788601c80aef?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzYxMzI4MzM5fDA&ixlib=rb-4.1.0&q=85" alt="Enterprise Dashboard Platform">
+                        <span class="portfolio-badge">Web Application</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Enterprise Dashboard Platform</h3>
+                        <p>Comprehensive analytics and management platform built with Next.js for a Fortune 500 client.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Next.js</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1658953229625-aad99d7603b4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzYxMzI4MzQ2fDA&ixlib=rb-4.1.0&q=85" alt="E-Commerce Mobile App">
+                        <span class="portfolio-badge">Mobile Application</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>E-Commerce Mobile App</h3>
+                        <p>Full-featured shopping app with real-time inventory and seamless checkout experience using Flutter.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Stripe</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1758770478125-4850521fd941?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwzfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzYxMzI4MzQ2fDA&ixlib=rb-4.1.0&q=85" alt="Healthcare Management System">
+                        <span class="portfolio-badge">Web Application</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Healthcare Management System</h3>
+                        <p>HIPAA-compliant patient management and telemedicine platform serving 10,000+ users.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Next.js</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzYxMzI4MzQ2fDA&ixlib=rb-4.1.0&q=85" alt="Fintech Banking App">
+                        <span class="portfolio-badge">Mobile Application</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Fintech Banking App</h3>
+                        <p>Secure mobile banking solution with advanced fraud detection and real-time transactions.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">AWS</span>
+                            <span class="tag">Microservices</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Team</h2>
+                <p>Talented professionals dedicated to delivering exceptional results</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHN8ZW58MHx8fHwxNzYxMjU2Nzg0fDA&ixlib=rb-4.1.0&q=85" alt="Michael Chen">
+                    </div>
+                    <h3>Michael Chen</h3>
+                    <p class="team-role">CEO & Lead Architect</p>
+                    <p class="team-bio">15+ years of experience in software architecture and team leadership. Specializes in scalable system design.</p>
+                    <div class="team-social">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://images.unsplash.com/photo-1657128344786-360c3f8e57e5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHN8ZW58MHx8fHwxNzYxMjU2Nzg0fDA&ixlib=rb-4.1.0&q=85" alt="Sarah Johnson">
+                    </div>
+                    <h3>Sarah Johnson</h3>
+                    <p class="team-role">CTO</p>
+                    <p class="team-bio">Expert in Next.js and modern web technologies. Led development teams at major tech companies.</p>
+                    <div class="team-social">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHN8ZW58MHx8fHwxNzYxMjU2Nzg0fDA&ixlib=rb-4.1.0&q=85" alt="David Martinez">
+                    </div>
+                    <h3>David Martinez</h3>
+                    <p class="team-role">Senior Flutter Developer</p>
+                    <p class="team-bio">Mobile development specialist with 50+ published apps. Passionate about creating beautiful user experiences.</p>
+                    <div class="team-social">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://images.pexels.com/photos/30004320/pexels-photo-30004320.jpeg" alt="Emily Rodriguez">
+                    </div>
+                    <h3>Emily Rodriguez</h3>
+                    <p class="team-role">Lead UI/UX Designer</p>
+                    <p class="team-bio">Award-winning designer focused on user-centered design. Creates interfaces that users love.</p>
+                    <div class="team-social">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://images.unsplash.com/photo-1652471943570-f3590a4e52ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHN8ZW58MHx8fHwxNzYxMjU2Nzg0fDA&ixlib=rb-4.1.0&q=85" alt="James Wilson">
+                    </div>
+                    <h3>James Wilson</h3>
+                    <p class="team-role">Full Stack Developer</p>
+                    <p class="team-bio">Full-stack expert proficient in Next.js, Node.js, and cloud technologies. Delivers robust solutions.</p>
+                    <div class="team-social">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="https://images.pexels.com/photos/30004322/pexels-photo-30004322.jpeg" alt="Lisa Anderson">
+                    </div>
+                    <h3>Lisa Anderson</h3>
+                    <p class="team-role">Project Manager</p>
+                    <p class="team-bio">Certified Scrum Master with expertise in agile methodologies. Ensures projects deliver on time and budget.</p>
+                    <div class="team-social">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Testimonials</h2>
+                <p>Hear what our clients have to say about working with us</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>
+                        "Augment Lab transformed our vision into reality. Their expertise in Next.js helped us launch our platform 2 months ahead of schedule. The quality of their work is exceptional."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RT</div>
+                        <div class="author-info">
+                            <div class="author-name">Robert Thompson</div>
+                            <div class="author-role">VP of Engineering at TechCorp Solutions</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>
+                        "Working with Augment Lab was a game-changer for our mobile strategy. Their Flutter development team delivered a beautiful, performant app that our customers love."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JL</div>
+                        <div class="author-info">
+                            <div class="author-name">Jennifer Lee</div>
+                            <div class="author-role">Chief Technology Officer at Global Finance Inc.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>
+                        "Professional, reliable, and incredibly skilled. Augment Lab handled our complex healthcare platform with expertise and delivered beyond expectations. Highly recommended!"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MW</div>
+                        <div class="author-info">
+                            <div class="author-name">Marcus Williams</div>
+                            <div class="author-role">CEO at HealthFirst Systems</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>
+                        "The team at Augment Lab is outstanding. They understood our requirements perfectly and created a scalable solution that has grown with our business. True partners in success."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <div class="author-name">Anna Schmidt</div>
+                            <div class="author-role">Director of Digital at E-Commerce Partners</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your next project? Contact us today for a free consultation</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@company.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="Your Company Name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+880 1XXX-XXXXXX">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required rows="5" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info-wrapper">
+                    <div class="contact-info-intro">
+                        <h3>Contact Information</h3>
+                        <p>Have a question or want to work together? We'd love to hear from you. Fill out the form or reach out directly using the contact details below.</p>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Email</h4>
+                                <a href="mailto:hello@augmentlab.com">hello@augmentlab.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Phone</h4>
+                                <a href="tel:+8801XXXXXXXXX">+880 1XXX-XXXXXX</a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Address</h4>
+                                <p>Dhaka, Bangladesh</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-card">
+                        <h4>Schedule a Call</h4>
+                        <p>Prefer to speak directly? Book a 30-minute consultation call with our team.</p>
+                        <button class="btn btn-white" onclick="showToast('Calendar Opening', 'Redirecting to our scheduling page...')">
+                            Book a Meeting
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Augment Lab</h3>
+                    <p>Expert software development team specializing in Next.js and Flutter, delivering cutting-edge solutions for companies worldwide.</p>
+                    <div class="footer-social">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:hello@augmentlab.com">hello@augmentlab.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+8801XXXXXXXXX">+880 1XXX-XXXXXX</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Dhaka, Bangladesh</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Augment Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
