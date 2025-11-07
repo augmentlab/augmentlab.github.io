@@ -78,6 +78,21 @@ function showToast(title, description) {
     }, 3000);
 }
 
+// Country select styling
+const countrySelect = document.getElementById('country');
+if (countrySelect) {
+    function updateCountrySelectStyle() {
+        if (countrySelect.value === '') {
+            countrySelect.classList.add('empty');
+        } else {
+            countrySelect.classList.remove('empty');
+        }
+    }
+    
+    updateCountrySelectStyle();
+    countrySelect.addEventListener('change', updateCountrySelectStyle);
+}
+
 // Contact Form Submission
 const contactForm = document.getElementById('contactForm');
 
