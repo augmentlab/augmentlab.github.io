@@ -118,11 +118,11 @@
                 <p class="hero-description">Expert software development team specializing in Next.js and Flutter, delivering cutting-edge solutions for companies worldwide.</p>
                 
                 <div class="hero-buttons">
-                    <button class="btn btn-primary btn-lg" onclick="scrollToSection('contact')">
+                    <a href="https://calendly.com/augmentlab" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
                         <i class="far fa-calendar"></i>
                         Schedule a Call
                         <i class="fas fa-arrow-right"></i>
-                    </button>
+                    </a>
                     <button class="btn btn-outline btn-lg" onclick="scrollToSection('contact')">
                         Get a Quote
                     </button>
@@ -328,6 +328,7 @@
     </section>
 
     <!-- Team Section -->
+    <!--
     <section id="team" class="team-section">
         <div class="container">
             <div class="section-header">
@@ -428,6 +429,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials-section">
@@ -531,7 +533,9 @@
             
             <div class="contact-grid">
                 <div class="contact-form-wrapper">
-                    <form id="contactForm" class="contact-form">
+                    <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="bfedffa9-4a96-4b72-9a2a-c4a818293f90">
+                        
                         <div class="form-group">
                             <label for="name">Full Name *</label>
                             <input type="text" id="name" name="name" required placeholder="John Doe">
@@ -577,17 +581,27 @@
                             </div>
                             <div class="info-content">
                                 <h4>Email</h4>
-                                <a href="mailto:hello@augmentlab.com">hello@augmentlab.com</a>
+                                <a href="mailto:augmentlab.io@gmail.com">augmentlab.io@gmail.com</a>
                             </div>
                         </div>
                         
                         <div class="info-item">
                             <div class="info-icon">
-                                <i class="fas fa-phone"></i>
+                                <i class="fab fa-linkedin"></i>
                             </div>
                             <div class="info-content">
-                                <h4>Phone</h4>
-                                <a href="tel:+8801XXXXXXXXX">+880 1XXX-XXXXXX</a>
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/company/augmentlab/" target="_blank" rel="noopener noreferrer">augmentlab</a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/augmentlab/" target="_blank" rel="noopener noreferrer">augmentlab</a>
                             </div>
                         </div>
                         
@@ -605,9 +619,10 @@
                     <div class="cta-card">
                         <h4>Schedule a Call</h4>
                         <p>Prefer to speak directly? Book a 30-minute consultation call with our team.</p>
-                        <button class="btn btn-white" onclick="showToast('Calendar Opening', 'Redirecting to our scheduling page...')">
+                        <a href="https://calendly.com/augmentlab" target="_blank" rel="noopener noreferrer" class="btn btn-white">
+                            <i class="far fa-calendar"></i>
                             Book a Meeting
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -622,9 +637,8 @@
                     <h3>Augment Lab</h3>
                     <p>Expert software development team specializing in Next.js and Flutter, delivering cutting-edge solutions for companies worldwide.</p>
                     <div class="footer-social">
-                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/company/augmentlab/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/augmentlab/" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 
@@ -643,11 +657,7 @@
                     <ul>
                         <li>
                             <i class="fas fa-envelope"></i>
-                            <a href="mailto:hello@augmentlab.com">hello@augmentlab.com</a>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <a href="tel:+8801XXXXXXXXX">+880 1XXX-XXXXXX</a>
+                            <a href="mailto:augmentlab.io@gmail.com">augmentlab.io@gmail.com</a>
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>

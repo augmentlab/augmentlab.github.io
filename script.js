@@ -81,36 +81,55 @@ function showToast(title, description) {
 // Contact Form Submission
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    // Get form values
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        company: document.getElementById('company').value,
-        phone: document.getElementById('phone').value,
-        message: document.getElementById('message').value
-    };
+    // Disable submit button to prevent double submission
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.innerHTML;
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     
-    // Show success toast
-    showToast(
-        'Message Sent!',
-        "Thank you for contacting us. We'll get back to you within 24 hours."
-    );
-    
-    // Reset form
-    contactForm.reset();
-    
-    // Here you would typically send the data to a server
-    // For example:
-    // fetch('/api/contact', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(formData),
-    // });
+    try {
+        // Get form data
+        const formData = new FormData(contactForm);
+        
+        // Submit to Web3Forms
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            // Show success toast
+            showToast(
+                'Message Sent!',
+                "Thank you for contacting us. We'll get back to you within 24 hours."
+            );
+            
+            // Reset form
+            contactForm.reset();
+        } else {
+            // Show error toast
+            showToast(
+                'Error',
+                result.message || 'Something went wrong. Please try again later.'
+            );
+        }
+    } catch (error) {
+        // Show error toast
+        showToast(
+            'Error',
+            'Failed to send message. Please check your connection and try again.'
+        );
+        console.error('Form submission error:', error);
+    } finally {
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonText;
+    }
 });
 
 // Intersection Observer for fade-in animations
